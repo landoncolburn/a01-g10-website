@@ -12,7 +12,11 @@ import {
 } from "echarts/components";
 import { CanvasRenderer } from "echarts/renderers";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub, faMastodon } from "@fortawesome/free-brands-svg-icons";
+import {
+    faGithub,
+    faMastodon,
+    faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 import Footer from "./components/Footer";
 
 echarts.use([
@@ -93,7 +97,6 @@ var darkTheme = {
             color: "#817f91",
         },
         label: {
-            // TODO Contrast of label backgorundColor
             color: "#fff",
         },
     },
@@ -239,7 +242,7 @@ interface TeamMember {
     name: string;
     avatar: string;
     links: {
-        name: "GitHub" | "Mastodon";
+        name: "GitHub" | "Mastodon" | "Linkedin";
         link: string;
     }[];
 }
@@ -250,39 +253,47 @@ const TEAM_MEMBERS: TeamMember[] = [
         avatar: "https://cdn.discordapp.com/avatars/407971737607864322/47ec99d2773d9e7c9f28d25803949a68.png?size=2048",
         links: [
             { name: "GitHub", link: "https://github.com/landoncolburn" },
-            { name: "Mastodon", link: "@landon@fosstodon.org" },
+            { name: "Mastodon", link: "https://fosstodon.org/@landon" },
         ],
     },
     {
         name: "Garizaldy Gerra",
         avatar: "https://cdn.discordapp.com/avatars/191010905096585216/50dea1b9e3904e0aefce63ae4b2a3315.png?size=2048",
         links: [
-            { name: "GitHub", link: "https://github.com/" },
-            { name: "Mastodon", link: "@landon@fosstodon.org" },
+            {
+                name: "Linkedin",
+                link: "https://www.linkedin.com/in/garizaldygerra/",
+            },
         ],
     },
     {
         name: "Raul Gonzales",
         avatar: "https://cdn.discordapp.com/avatars/595405457301045248/3db878d62ddf1a6ef2de3468767af319.png?size=2048",
         links: [
-            { name: "GitHub", link: "https://github.com/" },
-            { name: "Mastodon", link: "@landon@fosstodon.org" },
+            {
+                name: "Linkedin",
+                link: "https://www.linkedin.com/in/ragonz0811",
+            },
         ],
     },
     {
         name: "Nicolas Brandt-Ganding",
         avatar: "https://cdn.discordapp.com/avatars/144975991629021184/49614b1422783dc2bcabc0a8cf224f0b.png?size=2048",
         links: [
-            { name: "GitHub", link: "https://github.com/" },
-            { name: "Mastodon", link: "@landon@fosstodon.org" },
+            {
+                name: "Linkedin",
+                link: "https://linkedin.com/in/nicolas-brandt-ganding-990372178",
+            },
         ],
     },
     {
         name: "Jaspreet Singh",
         avatar: "https://cdn.discordapp.com/avatars/725207478723412010/af1d71ee75df7df7e9b49736b50c3a66.png?size=2048",
         links: [
-            { name: "GitHub", link: "https://github.com/" },
-            { name: "Mastodon", link: "@landon@fosstodon.org" },
+            {
+                name: "Linkedin",
+                link: "https://www.linkedin.com/in/jaspreetcing/",
+            },
         ],
     },
 ];
@@ -290,6 +301,7 @@ const TEAM_MEMBERS: TeamMember[] = [
 const icons = {
     GitHub: <FontAwesomeIcon icon={faGithub} />,
     Mastodon: <FontAwesomeIcon icon={faMastodon} />,
+    Linkedin: <FontAwesomeIcon icon={faLinkedin} />,
 };
 
 function App() {
@@ -337,7 +349,7 @@ function App() {
                     <h1 className="text-xl font-semibold">Progress Logging</h1>
                     <p>
                         The beautiful logging features provide meaningful
-                        insight on your progress to keep motiviated.
+                        insight on your progress to keep motivated.
                     </p>
                 </div>
             </div>
@@ -446,9 +458,9 @@ function App() {
                     Our system architecture focused on a modular approach to
                     Android development, opting to use Fragments to contain our
                     interface design, and ViewControllers to contain our
-                    busniess logic. We ultimately chose this approach due to our
+                    business logic. We ultimately chose this approach due to our
                     familiarity with iOS development, and the fluid DX
-                    (developer expierence) we can expect to transition into
+                    (developer experience) we can expect to transition into
                     Android. Looking back on this now, our application is not as
                     dynamic as our architecture may be designed for, introducing
                     extra overhead where it is not required (for example, our
@@ -459,7 +471,7 @@ function App() {
                 <p>
                     During the development process, much of our project was
                     smooth sailing. Our team developed good chemistry with each
-                    other and we learned to rely on each individuals stengths
+                    other and we learned to rely on each individuals strengths
                     instead of trying to share everything. We had the majority
                     of our user interface and testing developed quickly, and the
                     persistance followed shortly thereafter. All of our group
@@ -473,7 +485,7 @@ function App() {
                     the end of the project we had to do some refactoring on some
                     layout components, and database tables to allow for the
                     remaining features to be implemented - requiring us to go
-                    back and clean up some techincal debt, but our team members
+                    back and clean up some technical debt, but our team members
                     handled this task with no trouble.
                 </p>
                 <p>
@@ -482,7 +494,7 @@ function App() {
                     beginning the project to prevent any issues that may arise
                     in the future. This project has allowed us to understand the
                     major role in software development that planning and
-                    organization take, espicailly when working with other group
+                    organization take, especially when working with other group
                     members.
                 </p>
                 <p>
@@ -490,7 +502,7 @@ function App() {
                     across 49 different classes. Our test suite has 59 public
                     members and 27 private members across 27 classes. Our
                     project has 2579 lines of code, with 736 lines in our
-                    testing codebase. Approximatly half of this code is
+                    testing codebase. Approximately half of this code is
                     responsible for Habits themselves and managing their data,
                     with another 25% dedicated to the goals and streaks.
                 </p>
@@ -557,12 +569,12 @@ function App() {
                     project contributed from all 5 team members. One notable
                     code smell is our need to manually update the state of the
                     application in some contexts when adding or removing data.
-                    We would like to refactor this databinding if time allowed
-                    for it, but unfortunatly other issues and features took
+                    We would like to refactor this data-binding if time allowed
+                    for it, but unfortunately other issues and features took
                     priority. As of right now we have one outstanding bug that
                     is being investigated, Java's garbage collector is
                     collecting a callback function before it should leading to
-                    us calling a method on a non-existant resource.
+                    us calling a method on a non-existent resource.
                 </p>
                 <p>
                     The database, calendar, and notifications all work way
@@ -575,30 +587,34 @@ function App() {
                 <p>
                     On the technical side of things, we are using
                     React+Typescript for the website and for the interface we
-                    are using a RecylerView to save on performance. For our
+                    are using a RecyclerView to save on performance. For our
                     notifications we are using the Android API. For the team
                     management side of things, we have been using both scrums
                     and code reviews - both of which we were introduced to
                     through the course. We've been holding weekly meetings where
-                    we assign taskings and create sprints to accomplish
+                    we assign tasking's and create sprints to accomplish
                     meaningful work before meeting again next week to discuss
-                    progress and reevaluate our next sprint.
+                    progress and reevaluate our next sprint. We also used a
+                    GitLab webhook to make a discord bot that send notifications
+                    to our discord channel when there is GitLab activity to help
+                    our team stay in the loop and receive the credit they
+                    deserve.
                 </p>
                 <p>
                     Since the beginning of our project, our scope has shifted
                     several times. Originally we planned to do server-side
                     development for competitive features, but after adjusting
                     our scope we decided to focus on self-competition. We also
-                    had features involving the 75 HARD challange planned earlier
+                    had features involving the 75 HARD challenge planned earlier
                     in the semester, but for a variety of reasons we had to
                     spend more time on other features in the project and didn't
                     manage to deliver the feature on time. The project was a
-                    learning expierence for us in terms of setting reasonable
+                    learning experience for us in terms of setting reasonable
                     expectations and preventing scope-creep.
                 </p>
                 <p>
                     Once again, we learned the importance of organization and
-                    communication in a collaboritve environment, and next time
+                    communication in a collaborative environment, and next time
                     we will put an even larger emphasis on these principles in
                     our careers. Next time we will try and develop a more rigid
                     plan in the earlier stages of development to prevent needing
@@ -607,9 +623,8 @@ function App() {
                 <p>
                     Our conclusion is that software development is a highly
                     essential component of large team work, and without
-                    following the princples taught in this course projects of
-                    even small scale would be tremendiuosly difficult to
-                    develop.
+                    following the principles taught in this course projects of
+                    even small scale would be tremendously difficult to develop.
                 </p>
             </div>
             <Footer />
