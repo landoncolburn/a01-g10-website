@@ -18,6 +18,9 @@ import {
     faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 import Footer from "./components/Footer";
+import ReactPlayer from "react-player/file";
+import Modal from "react-modal";
+import { useState } from "react";
 
 echarts.use([
     TitleComponent,
@@ -305,6 +308,11 @@ const icons = {
 };
 
 function App() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const openModal = () => setIsOpen(true);
+    const closeModal = () => setIsOpen(false);
+
     return (
         <div className="bg-slate-200 dark:bg-slate-800 w-full flex flex-col items-center gap-16">
             <Banner />
@@ -321,14 +329,28 @@ function App() {
                         color={"primary"}
                     />
                     <CTAButton
-                        name={"Source Code"}
-                        link={
-                            "https://code.cs.umanitoba.ca/comp3350-winter2023/a01-g10-habithero"
-                        }
+                        name={"Demo"}
+                        link={""}
+                        action={openModal}
                         color={"secondary"}
                     />
                 </div>
             </div>
+            <Modal
+                isOpen={isOpen}
+                contentLabel="Demo Video"
+                onRequestClose={closeModal}
+            >
+                <button onClick={closeModal} className="absolute top-0 right-0">
+                    [X]
+                </button>
+                <ReactPlayer
+                    url="/HabitHero_Recording_v1.1.mp4"
+                    controls
+                    width="100%"
+                    height="100%"
+                />
+            </Modal>
             <PhoneMockup />
             <div className="max-w-5xl p-16 -mt-96 dark:text-white flex md:flex-row flex-col gap-16 text-center dark:bg-black/50 bg-white/70 backdrop-blur-xl">
                 <div>
