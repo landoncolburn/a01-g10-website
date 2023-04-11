@@ -21,6 +21,7 @@ import Footer from "./components/Footer";
 import ReactPlayer from "react-player/file";
 import Modal from "react-modal";
 import { useState } from "react";
+import videoUrl from "/HabitHero_Recording_v1.1.mp4";
 
 echarts.use([
     TitleComponent,
@@ -345,7 +346,7 @@ function App() {
                     [X]
                 </button>
                 <ReactPlayer
-                    url="/HabitHero_Recording_v1.1.mp4"
+                    url={videoUrl}
                     controls
                     width="100%"
                     height="100%"
