@@ -308,15 +308,15 @@ function App() {
     return (
         <div className="bg-slate-200 dark:bg-slate-800 w-full flex flex-col items-center gap-16">
             <Banner />
-            <div className="max-w-3xl flex flex-col gap-8">
-                <h1 className="text-7xl font-semibold dark:text-white">
+            <div className="max-w-3xl flex flex-col gap-8 items-center mx-12 md:items-start">
+                <h1 className="text-7xl font-semibold dark:text-white text-center md:text-left">
                     Become your best self with HabitHero
                 </h1>
                 <div className="flex flex-row gap-8">
                     <CTAButton
                         name={"Download for Android"}
                         link={
-                            "https://code.cs.umanitoba.ca/comp3350-winter2023/a01-g10-habithero"
+                            "https://code.cs.umanitoba.ca/comp3350-winter2023/a01-g10-habithero/-/releases/permalink/latest"
                         }
                         color={"primary"}
                     />
@@ -330,7 +330,7 @@ function App() {
                 </div>
             </div>
             <PhoneMockup />
-            <div className="max-w-5xl p-16 -mt-44 dark:text-white flex flex-row gap-16 text-center dark:bg-black/50 bg-white/70 backdrop-blur-xl">
+            <div className="max-w-5xl p-16 -mt-96 dark:text-white flex md:flex-row flex-col gap-16 text-center dark:bg-black/50 bg-white/70 backdrop-blur-xl">
                 <div>
                     <h1 className="text-xl font-semibold">Habit Tracking</h1>
                     <p>
@@ -354,7 +354,7 @@ function App() {
                 </div>
             </div>
             <div className="h-8"></div>
-            <div className="max-w-4xl dark:text-white flex flex-col gap-6">
+            <div className="max-w-4xl dark:text-white flex flex-col gap-6 mx-12">
                 <h2 className="text-4xl font-semibold">Our Vision</h2>
                 <p>
                     The habit-tracking app, HabitHero, will be used to track a
@@ -422,7 +422,7 @@ function App() {
                     habits. These values can be measured through future surveys.
                 </p>
             </div>
-            <div className="max-w-4xl dark:text-white flex flex-col gap-6">
+            <div className="max-w-4xl dark:text-white flex flex-col gap-6 mx-12">
                 <h2 className="text-4xl font-semibold text-center mb-8">
                     Meet the team
                 </h2>
@@ -450,7 +450,7 @@ function App() {
                     ))}
                 </div>
             </div>
-            <div className="max-w-4xl dark:text-white flex flex-col gap-6">
+            <div className="max-w-4xl dark:text-white flex flex-col gap-6 mx-12">
                 <h2 className="text-4xl font-semibold text-left mb-8">
                     Post-mortem
                 </h2>
@@ -506,7 +506,7 @@ function App() {
                     responsible for Habits themselves and managing their data,
                     with another 25% dedicated to the goals and streaks.
                 </p>
-                <div>
+                <div className="none md:block">
                     <ReactEChartsCore
                         echarts={echarts}
                         option={{
@@ -544,7 +544,7 @@ function App() {
                                 },
                             ],
                         }}
-                        style={{ height: "500px", marginBottom: "1rem" }}
+                        style={{ width: "100%", marginBottom: "1rem" }}
                         lazyUpdate={true}
                         theme={
                             window.matchMedia("(prefers-color-scheme: dark)")
